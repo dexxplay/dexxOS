@@ -11,8 +11,8 @@ The os will be modular which means that it and all its features are separate par
    + Switch To Protction Mode (32-bit)
    + Enabling the A20 line
    + 32-bit Cross Compiler (so we can code in C)
-   + 
-
+   + Create linker script
+   + Small ATA disk driver (loading kernel)
  + Kernel
 
 ## End-Goal
