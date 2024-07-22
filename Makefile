@@ -8,9 +8,9 @@ build:
 	mkdir -p bin
 	rm -f bin/*.bin
 # Compile the bootloader
-	nasm -f bin src/bootloader.asm -o bin/bootloader.bin
+	nasm -f bin src/bootloader/bootloader.asm -o bin/bootloader.bin
 # this assembly is not compiled as bin but elf32 so we can have are meta-data
-	nasm -f elf32 src/dexxos.asm -o bin/dexxos_asm.bin
+	nasm -f elf32 src/assembly/dexxos.asm -o bin/dexxos_asm.bin
 # compile dexxos_c.bin
 # -m32 = 32-bit mode, -ffreestanding = no c libraryes
 	gcc -m32 -c -fno-stack-protector -ffreestanding -fno-PIC -std=gnu99 src/dexxos.c -o bin/dexxos_c.bin

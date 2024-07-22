@@ -101,7 +101,7 @@ load_dexxos:
  loop .load_dexxos_from_hard_disk
 
 ; Enter Protected Mode 32-bit
- cli
+ cli ; Clear/Disable Interrupts
  lgdt [gdt_descriptor] ; set GDT to be used
  mov eax, cr0
  or eax, 0x1  ; set PE (Protected Enable) bit in CR0
@@ -111,7 +111,7 @@ load_dexxos:
 bits 32
 load32:
  ; Set Regesterys
- mov ax, 0x0010
+ mov ax, 0x0010 ; DATA_SEG
  mov ds, ax
  mov es, ax
  mov fs, ax
