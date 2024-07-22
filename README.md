@@ -7,13 +7,29 @@ The os will be modular which means that it and all its features are separate par
 ## Current-State
  ![Current-State](/images/dexxOS_current.png)
  + bootloader
+   + Enabling the A20 line
+   + loading kernel with BIOS (16-bit)
    + Setup GDT (flat memory model) 
    + Switch To Protction Mode (32-bit)
-   + Enabling the A20 line
-   + 32-bit Cross Compiler (so we can code in C)
-   + Create linker script
-   + Small ATA disk driver (loading kernel)
+   + Start Kernel
  + Kernel
+   + Text Mode
+ + Drivers
+   + 
+
+### Requirments (Linux)
+ - `sudo apt install make` (Build tool)
+ - `sudo apt install nasm` (Assembler)
+ - `sudo apt install qemu-system-x86` (Emulator)
+ - `sudo apt install gcc` (Compiling C code)
+
+### How to build
+ - Install Requirments
+ - Download the project
+ - goto root diretory with make file
+ - run `make run` to build and run dexxOS
+ - run `make clear` to remove all pre-built binarys for clean build
+ - run `make` to just build without running
 
 ## End-Goal
  ![End-Goal](/images/dexxOS_goal.png)
@@ -27,17 +43,3 @@ The os will be modular which means that it and all its features are separate par
  **[Viewer]** - image viewer<br>
  **[Calculator]** - calculate numbers (+-×÷)<br>
  **[Defragmenter]** - when ever you write a file to disk the files memory may not be next to eachother but scattered into multiple chunks this is called fragment data. This app defragments the data combining them all in 1 consecutive memory (increasing reading speed)<br>
-
-### Requirments (Linux)
- - sudo apt install `make` (Build tool)
- - sudo apt install `nasm` (Assembler)
- - sudo apt install `qemu-system-x86` (Emulator)
- - sudo apt install `gcc` (Compiling C code)
-
-### How to build
- - Install Requirments
- - Download the project
- - goto root diretory with make file
- - run `make run` to build and run dexxOS
- - run `make clear` to remove all pre-built binarys for clean build
- - run `make` to just build without running
