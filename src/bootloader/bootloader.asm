@@ -102,7 +102,7 @@ load_dexxos:
 
 ; Enter Protected Mode 32-bit
  cli ; Clear/Disable Interrupts
- lgdt [gdt_descriptor] ; set GDT to be used
+ lgdt [gdt_descriptor] ; set GDT to be used (by giving CPU base address and size)
  mov eax, cr0
  or eax, 0x1  ; set PE (Protected Enable) bit in CR0
  mov cr0, eax
@@ -117,11 +117,12 @@ load32:
  mov fs, ax
  mov gs, ax
  mov ss, ax
-
- mov esp, 0xFFF0 ;set stack pointer
+ ; Set stack
+ mov ebp, 0xFFF0 ; stack base pointer
+ mov esp, ebp ; stack pointer
  jmp 0x10000 ;execute dexxOS
 
-; GDT (Flat memory Model)
+; GDT - Contains entries telling the CPU about memory segments (Flat memory Model)
 gdt_start:
 gdt_null:
     dq 0 ;first item is null

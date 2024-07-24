@@ -1,11 +1,15 @@
+// dexxOS
 #include "dexxos.h"
-#include <stddef.h> // size_t
-#include <stdint.h> // uint16_t
+
+#include "drivers/system/memory.h"
+#include "drivers/system/heap.h"
+
+#include "drivers/system/memory.c"
+#include "drivers/system/heap.c"
 
 uint16_t* video_mem = 0;
 uint16_t terminal_row = 0;
 uint16_t terminal_col = 0;
-char print_color = 13; // 1 blue, 2 green, 3 light blue, 4 red, 5 purple, ... , 15 white
 
 // Create a text/color 16 bit value (switching for little indian)
 uint16_t terminal_make_char(char c, char color){
@@ -17,6 +21,7 @@ void terminal_putchar(int x, int y, char c, char color){
 }
 // Writes to terminal and increment position
 void terminal_writechar(char c, char color){
+    // newLine
     if(c == '\n'){
         terminal_row += 1;
         terminal_col = 0;
@@ -55,14 +60,27 @@ void print(const char* str){
         terminal_writechar(str[i], print_color);
     }
 }
-void dexxos()
-{
-    terminal_initialize();
-    print_color = 3; // blue
-    print("dexxOS\n");
-    print_color = 15; // white
-    print("Hello werido");
-
-    while(0 == 0){}
-
+// Entry point for dexxos
+void dexxos(){
+    // Initialize text mode
+        terminal_initialize();
+    // Initialize the heap
+        kheap_init();
+    // Print
+        print_color = c_cyan;
+        print("dexxOS\n");
+        print_color = c_white;
+        print("Hello werido");
+    // Allocate and free memory
+        void* ptr = kmalloc(50);
+        void* ptr2 = kmalloc(5000);
+        void* ptr3 = kmalloc(5600);
+        kfree(ptr);
+        void* ptr4 = kmalloc(50);
+    // Free allocated memory
+        kfree(ptr2);
+        kfree(ptr3);
+        kfree(ptr4);
+    // end process
+        system_stop();
 }

@@ -4,9 +4,9 @@ all: run
 .PHONY: build run clear
 
 build:
-# make bin directory & clear bin files in it (if exitst)
+# create bin folder or clear all files in it (if exitst)
 	mkdir -p bin
-	rm -f bin/*.bin
+	rm -f bin/*
 # Compile the bootloader
 	nasm -f bin src/bootloader/bootloader.asm -o bin/bootloader.bin
 # this assembly is not compiled as bin but elf32 so we can have are meta-data
@@ -29,4 +29,4 @@ run: build
 
 clear:
 	rm -rd bin
-	rm -rf dexxOS.img
+	rm -rf dexxos.img

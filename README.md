@@ -15,6 +15,8 @@ I try my best to make the code as simple and straight forward as possible so peo
    + Start Kernel
  + Kernel
    + Text Mode
+   + Heap
+   + Paging
  + Drivers
    + 
 

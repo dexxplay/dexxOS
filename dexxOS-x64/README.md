@@ -1,3 +1,3 @@
 ## dexxOS-x64
 I definitly want to jump to 64-bit as soon as possable. its not that i feel restricted in 32-bit mode, but I might as well make full use of the CPU. Also the longer I wait the more stuff and work it will be transferring it over.
-In my head 32-bit should be replaced by all 64bit systems anyways. I'm only starting with 32bit because there are more tutorials and learning resources out there for beginners.
+In my head all 32-bit systems should be replaced by 64bit anyways. I'm only starting with 32bit because there are more tutorials and learning resources out there for beginners.
