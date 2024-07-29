@@ -11,8 +11,10 @@ extern dexxos ; defined in dexxos.c (the linker resoves the memory address so we
 start:
 ; Start dexxOS
  call dexxos
-; Infinite loop
+; Halts the system (Infinite loop)
 system_stop:
  cli
  hlt
  jmp system_stop
+
+ %include "src/assembly/paging.asm"

@@ -17,6 +17,7 @@ I try my best to make the code as simple and straight forward as possible so peo
    + Text Mode
    + Heap
    + Paging
+   + Interrupts (Soon)
  + Drivers
    + 
 

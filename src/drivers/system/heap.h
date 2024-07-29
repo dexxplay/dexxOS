@@ -1,3 +1,4 @@
+// heap
 #ifndef HEAP_H
 #define HEAP_H
 
@@ -29,6 +30,8 @@ struct heap{
 void kheap_init();
 // allocate memory from the kernel heap
 void* kmalloc(size_t size);
+// allocate memory kernel heap and clears with zeros
+void* kzalloc(size_t size);
 // free allocateted heap memory
 void kfree(void* ptr);
 

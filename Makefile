@@ -15,7 +15,7 @@ build:
 # -m32 = 32-bit mode, -ffreestanding = no c libraryes
 	gcc -m32 -c -fno-stack-protector -ffreestanding -fno-PIC -std=gnu99 src/dexxos.c -o bin/dexxos_c.bin
 # compile dexxos.bin with ( dexxos_asm.bin, dexxos_c.bin )
-# linking them together , basicly combined them together, 
+# linking them together, basicly combined them together
 # allow the linker to go into these files and find all the refrences to methods, and give them concreate memory address so that we can call functions from other .o files
 # like the extern dexxos lets us call the method from a .c compiled code
 	ld -m elf_i386 --oformat=binary -T src/linker.ld -o bin/dexxos.bin bin/dexxos_asm.bin bin/dexxos_c.bin

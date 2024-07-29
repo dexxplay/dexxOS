@@ -101,6 +101,14 @@ void* kmalloc(size_t size){
 out:
     return address;
 }
+// allocate memory kernel heap and clears with zeros
+void* kzalloc(size_t size){
+    void* ptr = kmalloc(size);
+    if(ptr){
+        memset(ptr,0x00,size);
+    }
+    return ptr;
+}
 // free allocateted heap memory
 void kfree(void* ptr){
     // Calculate starting block
